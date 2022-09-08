@@ -13,8 +13,8 @@ class Caixa extends Model
         'nome', 'valor'
     ];
 
-    public function pdv(){
+   /* public function pdv(){
 
         return $this->belongsTo(Pdv::class);
-    }
+    }*/
 }

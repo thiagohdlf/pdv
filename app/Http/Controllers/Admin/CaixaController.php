@@ -5,33 +5,35 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{
-    Pdv, Caixa
+    /*Pdv,*/ Caixa
 };
 
 class CaixaController extends Controller
 {
-    private $caixa, $pdv;
+    private $caixa/*, $pdv*/;
 
-    public function __construct(Caixa $caixa, Pdv $pdv){
+    public function __construct(Caixa $caixa, /*Pdv $pdv*/){
 
         $this->caixa = $caixa;
-        $this->pdv = $pdv;
+        //$this->pdv = $pdv;
     }
 
     public function index(){
 
-        $dados = $this->pdv->all();
-        return view('admin.paginas.caixa.index', compact('dados'));
+       // $dados = $this->pdv->all();
+    return view('admin.paginas.caixa.index'/*, compact('dados')*/);
     }
 
     public function pdv(Request $request){
 
-//        dd($request->all());
-        $pdvs = new Pdv;
+        $this->caixa->create($request->all());
+        return redirect()->route('admin.caixa.index');
 
-        $pdvs->nome = $request['nome'];
+      //  $pdvs = new Pdv;
 
-        $caixa = $this->caixa->create([$pdvs]);
+        //$pdvs->nome = $request->all();
+
+        //$caixa = $this->pdv->caixa()->create([$pdvs]);
 
 
     }

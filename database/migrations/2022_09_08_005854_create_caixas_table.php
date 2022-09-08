@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('caixas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pdv_id');
+            //$table->unsignedBigInteger('pdv_id');
 
-            $table->string('nome');
+            $table->enum('nome', ['Caixa 1', 'Caixa 2', 'Caixa 3', 'Caixa 4'])->unique();
             $table->decimal('valor', 8,2);
 
-            $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
+            //$table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
             $table->timestamps();
         });
     }

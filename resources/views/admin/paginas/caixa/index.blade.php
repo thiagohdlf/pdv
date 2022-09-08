@@ -9,10 +9,11 @@
             <br>
             @csrf
             <select name="nome" class="form-select">
-                @foreach ($dados as $dado)
-                    <option {{ $dado->id }}>{{ $dado->nome }}</option>
-                @endforeach
-              </select>
+                <option>Caixa 1</option>
+                <option>Caixa 2</option>
+                <option>Caixa 3</option>
+                <option>Caixa 4</option>
+            </select>
             <label class="form-label">Valor</label>
             <input class="form-control" type="text" name="valor" placeholder="Valor" autofocus required>
             <br>
